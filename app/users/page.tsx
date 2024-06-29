@@ -1,6 +1,7 @@
 type UsersType = {
     id: number;
     name: string;
+    email: string;
 };
 
 const UsersPage = async () => {
@@ -10,12 +11,22 @@ const UsersPage = async () => {
     return (
         <>
             <h1>Users</h1>
-            <p>{new Date().toLocaleTimeString()}</p>
-            <ul>
-                {data.map((user) => (
-                    <li key={user.id}>{user.name}</li>
-                ))}
-            </ul>
+            <table className="table-bordered table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((user) => (
+                        <tr key={user.id}>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     );
 };
