@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "next",
+        "prettier"
+    ],
+    "rules": {
+        "import/no-anonymous-default-export": [
+            "error",
+            {
+                "allowArray": false,
+                "allowArrowFunction": false,
+                "allowAnonymousClass": false,
+                "allowAnonymousFunction": false,
+                "allowCallExpression": false,
+                "allowNew": false,
+                "allowLiteral": false,
+                "allowObject": true
+            }
+        ]
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    }
+}
