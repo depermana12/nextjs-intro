@@ -7,6 +7,7 @@ type UsersType = {
 const UsersPage = async () => {
     const res = await fetch("https://jsonplaceholder.typicode.com/users");
     const data: UsersType[] = await res.json();
+    const sortedData = data.sort((a, b) => a.name.localeCompare(b.name));
 
     return (
         <>
@@ -19,7 +20,7 @@ const UsersPage = async () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((user) => (
+                    {sortedData.map((user) => (
                         <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
@@ -31,4 +32,3 @@ const UsersPage = async () => {
     );
 };
 export default UsersPage;
-//13.10
